@@ -59,11 +59,41 @@ function delcont(id) {
   xhttp.send();
 }
 </script>
+<script type="text/javascript">
+  //------------ Edit data------------------
+  //------ Edit page show--------
+function editpage(id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var fullcont = document.getElementById("fullcont");
+      fullcont.innerHTML = this.responseText}
+  };
+
+  xhttp.open("GET", "edit.php?id="+id, true);
+  xhttp.send();
+}
+</script>
+    <script type="text/javascript">
+      // bact to index
+    function backidx() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var fullcont = document.getElementById("fullcont");
+        fullcont.innerHTML = this.responseText
+      }
+    };
+
+    xhttp.open("GET", "index.php", true);
+    xhttp.send();
+  }
+    </script>
   <body>
 
 <!-- <button type="button" class="btn btn-info" onclick="loadDoc()">send to page 2</button> -->
 
-<div class="container py-5">
+<div class="container py-5" id="fullcont">
     <h1 class="display-4">Welcome to Ajax(traditional way) with XAMPP</h1>
     <div class="row my-5">
       <div class="col">
@@ -107,7 +137,10 @@ function delcont(id) {
 	      <th scope="row"><?php echo $all_data['name'] ?></th>
 	      <td><?php echo $all_data['phone'] ?></td>
 	      <td><?php echo $all_data['email'] ?></td>
-	      <td><a type="button" href="edit.php" class="btn btn-warning mx-1">edit</a><button id="del" type="button" class="btn btn-danger mx-1" onclick="delcont(<?php echo $all_data['id'] ?>)">Delete</button></td> 
+	      <td>
+          <button id="del" type="button" class="btn btn-warning mx-1" onclick="editpage(<?php echo $all_data['id'] ?>)">edit</button>
+          <button id="del" type="button" class="btn btn-danger mx-1" onclick="delcont(<?php echo $all_data['id'] ?>)">Delete</button>
+        </td> 
 	    </tr>
        <?php } } ?>
       </tbody>
