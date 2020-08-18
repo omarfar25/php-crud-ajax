@@ -22,15 +22,14 @@
         <input type="text" placeholder="Enter Name" value="<?php $name = true ? $all_dat['name'] :'N/a' ; echo $name ?>" id="nameField" class="form-control">
       </div>
       <div class="col">
-        <input type="text" placeholder="Enter Phone" value="<?php $phone = true ? $all_dat['phone'] :'N/a' ; echo $phone ?>"
-        " id="phoneField" class="form-control">
+        <input type="text" placeholder="Enter Phone" value="<?php $phone = true ? $all_dat['phone'] :'N/a' ; echo $phone ?>" id="phoneField" class="form-control">
       </div>
       <div class="col">
-        <input type="email" placeholder="Enter Email" value="<?php $email = true ? $all_dat['email'] :'N/a' ; echo $email ?>"
-        " id="emailField" class="form-control">
+        <input type="email" placeholder="Enter Email" value="<?php $email = true ? $all_dat['email'] :'N/a' ; echo $email ?>" id="emailField" class="form-control">
       </div>
+
       <div class="col">
-        <button id="saveContact" class="btn btn-primary" onclick="updatecont()">Update Contact</button>
+        <button id="saveContact" class="btn btn-primary" onclick="updatecont('<?php echo $id ?>')">Update Contact</button>
       </div>
     </div>
     <button href="index.php"  onclick="backidx()">← back to index page</button>
